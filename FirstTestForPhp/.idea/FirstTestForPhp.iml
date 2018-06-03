@@ -2,7 +2,7 @@
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/thinkphp_5.0.18_with_ext/app" isTestSource="false" packagePrefix="app\" />
+      <sourceFolder url="file://$MODULE_DIR$/thinkphp_5.0.18_with_ext/application" isTestSource="false" packagePrefix="app\" />
       <excludeFolder url="file://$MODULE_DIR$/thinkphp_5.0.18_with_ext/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/thinkphp_5.0.18_with_ext/vendor/phpoffice/phpspreadsheet" />
       <excludeFolder url="file://$MODULE_DIR$/thinkphp_5.0.18_with_ext/vendor/psr/simple-cache" />
