@@ -2,9 +2,9 @@
 
 namespace app\common\model;
 
-use think\Model;
+use think\Model\Pivot;
 
-class AdminRole extends Model
+class AdminRole extends Pivot
 {
     protected $table = "admin_role";
 }

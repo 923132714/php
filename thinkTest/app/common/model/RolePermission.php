@@ -2,9 +2,10 @@
 
 namespace app\common\model;
 
-use think\Model;
+use think\Model\Pivot;
 
-class RolePermission extends Model
+
+class RolePermission extends Pivot
 {
     protected $table = "role_permission";
 

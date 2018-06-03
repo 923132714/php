@@ -15,6 +15,25 @@ Route::group("admin", function () {
     Route::post("/login","admin/login/login");
     Route::get("/logout","admin/login/logout");
 
+    Route::group("permission", function () {
+        Route::get("/index", "admin/permission/index");
+        Route::get("/create", "admin/permission/create");
+        Route::post("/create", "admin/permission/save");
+        Route::get("/edit/:id", "admin/permission/edit");
+        Route::post("/edit/:id", "admin/permission/update");
+        Route::get("/delete/:id", "admin/permission/delete");
+        Route::post("/delete/:id", "admin/permission/delete");
+    });
+    Route::group("role", function () {
+        Route::get("/index", "admin/role/index");
+        Route::get("/create", "admin/role/create");
+        Route::post("/create", "admin/role/save");
+        Route::get("/edit/:id", "admin/role/edit");
+        Route::post("/edit/:id", "admin/role/update");
+        Route::get("/delete/:id", "admin/role/delete");
+        Route::post("/delete/:id", "admin/role/delete");
+    });
+
     Route::get("/index/index", "admin/index/index");
     Route::get("/index/create", "admin/index/create");
     Route::post("/index/create", "admin/index/save");

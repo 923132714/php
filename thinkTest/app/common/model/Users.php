@@ -10,7 +10,7 @@ class Users extends Model
     protected $table = "users";
 
     public  function role(){
-        return  $this->belongsToMany("Role", "app/common/model/AdminRole","admin_id","role_id");
+        return  $this->belongsToMany("Role", "\app\common\model\AdminRole","admin_id","role_id");
     }
 
 
