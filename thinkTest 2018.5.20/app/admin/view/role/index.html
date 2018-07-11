@@ -1,0 +1,52 @@
+{extend name="app" /}
+
+{block name="title"}角色列表{/block}
+{block name="body"}
+<div class="col-xs-12">
+    <p>
+        <a href="{:url('admin/role/create')}" class="btn btn-primary">添加</a>
+    </p>
+
+</div>
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <td>id</td>
+        <td>角色名</td>
+        <td>角色描述</td>
+        <td>角色权限</td>
+    </tr>
+
+    </thead>
+    <tbody>
+    {volist name="role" id = "item"}
+    <tr>
+        <td>
+            {$item['id']}
+        </td>
+        <td>
+            {$item['name']}
+        </td>
+        <td>
+            {$item['description']}
+        </td>
+        <td>
+           {volist name="$item->permission" id ="permission"}
+              <span class="label label-primary">{$permission->name}</span>
+            {/volist}
+        </td>
+        <td>
+            <a href="{:url('admin/role/edit',['id' =>$item['id']])}" class="btn btn-info">编辑</a>
+            <a href="{:url('admin/role/delete',['id' =>$item['id']])}" class="btn btn-danger"
+               onclick="return confirm('确认删除？')">删除</a>
+        </td>
+    </tr>
+
+    {/volist}
+    </tbody>
+</table>
+<div class="col-xs-12">
+    {:htmlspecialchars_decode($role->render())}
+</div>
+{/block}

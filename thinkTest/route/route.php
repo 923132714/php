@@ -8,12 +8,15 @@
 // +----------------------------------------------------------------------
 // | Author: liu21st <liu21st@gmail.com>
 // +----------------------------------------------------------------------
-Route::get("/","index/index/index");
+Route::get("/", "index/index/index");
+
+
 
 Route::group("admin", function () {
-    Route::get("/login","admin/login/index");
-    Route::post("/login","admin/login/login");
-    Route::get("/logout","admin/login/logout");
+
+    Route::get("login", "admin/login/index");
+    Route::post("login", "admin/login/login");
+    Route::get("logout", "admin/login/logout");
 
     Route::group("permission", function () {
         Route::get("/index", "admin/permission/index");

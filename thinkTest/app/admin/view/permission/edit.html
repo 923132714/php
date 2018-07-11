@@ -24,6 +24,7 @@
             <label >
                 权限描述
             </label>
+
             <input type="text" name="description"  class="form-control"  placeholder="请输入权限描述" value="{$permission->description}" >
 
         </div>
@@ -32,7 +33,12 @@
             <label >
                 访问方法
             </label>
-            <input type="text" name="method"  class="form-control"  placeholder="请输入访问方法" value="{$permission->method}" >
+            <select  class="form-control"  name="method" value="{$permission->method}" >
+                　<option value="ANY">ANY</option>
+                　<option value="POST">POST</option>
+                　<option value="GET">GET</option>
+            </select>
+
 
         </div>
 

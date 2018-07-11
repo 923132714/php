@@ -29,6 +29,17 @@
         </div>
 
         <div class="form-group">
+            <label>
+                角色
+            </label>
+            <select name="role[]" class="form-control" multiple>
+                {volist name="role" id = "item"}
+                <option value="{$item->id}"  {$users->hasRole($item->id) ? 'selected' : ''}> {$item->name}</option>
+                {/volist}
+            </select>
+        </div>
+
+        <div class="form-group">
             <label >
                 用户权限
             </label>

@@ -5,7 +5,7 @@ class Index
 {
     public function index()
     {
-        $users = Users::order("id","desc")->paginate(20);
+        $users = Users::order("id","desc")->paginate(10);
         return view("",compact("users"));
     }
 

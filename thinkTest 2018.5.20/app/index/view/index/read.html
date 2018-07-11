@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>前台</title>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-xs-12">
+                <h1 class="text-center">
+                    用户中心
+                </h1>
+            </div>
+            <div class="col-xs-12">
+                {volist name="users" id = "item"}
+
+                <div class="panel panel-body">
+                    {$item->name}
+                </div>
+                {/volist }
+            </div>
+
+            <div class="col-sx-12 text-center">
+                {:htmlspecialchars_decode($users->render())}
+            </div>
+        </div>
+
+        <div class="row">
+            <civ class="col-xs-12 text-center">
+                <p style="line-height: 80px;">CopyRight users.cn</p>
+            </civ>
+        </div>
+
+    </div>
+</body>
+
+</html>

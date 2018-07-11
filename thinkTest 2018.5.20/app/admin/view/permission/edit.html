@@ -1,0 +1,53 @@
+{extend name="app" /}
+
+{block name="title"}编辑权限{/block}
+{block name="body"}
+<div class="col-xs-12">
+    <p>
+        <a href="{:url('admin/permission/index')}" class="btn btn-primary">返回权限列表</a>
+    </p>
+
+</div>
+
+<div class="col-xs-12">
+    <form action="" method="post" class="form-horizontal">
+
+        <div class="form-group">
+            <label >
+                权限名
+            </label>
+            <input type="text" name="name"  class="form-control"  placeholder="请输入权限名" value="{$permission->name}" >
+
+        </div>
+
+        <div class="form-group">
+            <label >
+                权限描述
+            </label>
+            <input type="text" name="description"  class="form-control"  placeholder="请输入权限描述" value="{$permission->description}" >
+
+        </div>
+
+        <div class="form-group">
+            <label >
+                访问方法
+            </label>
+            <input type="text" name="method"  class="form-control"  placeholder="请输入访问方法" value="{$permission->method}" >
+
+        </div>
+
+        <div class="form-group">
+            <label >
+                访问地址
+            </label>
+            <input type="text" name="preg_url"  class="form-control"  placeholder="请输入访问地址" value="{$permission->preg_url}" >
+
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">保存</button>
+
+        </div>
+    </form>
+</div>
+{/block}

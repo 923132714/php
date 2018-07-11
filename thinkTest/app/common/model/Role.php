@@ -12,7 +12,7 @@ class Role extends Model
 
     public function admin()
     {
-        return $this->belongsToMany("Admin", "\app\common\model\AdminRole", "role_id"
+        return $this->belongsToMany("Users", "\\app\\common\\model\\AdminRole", "role_id"
             , "admin_id");
     }
 

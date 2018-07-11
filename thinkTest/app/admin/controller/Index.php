@@ -4,8 +4,9 @@ namespace app\Admin\controller;
 
 use think\Controller;
 use think\Request;
-use app\common\model\Users;
+use app\common\model\Users ;
 use think\Validate;
+use app\common\model\Role;
 
 class Index extends Controller
 {
@@ -23,7 +24,7 @@ class Index extends Controller
      */
     public function index()
     {
-        $users = Users::order("id","desc")->paginate(20);
+        $users = Users::order("id","desc")->paginate(10);
         return view("",compact("users"));
     }
 
@@ -34,7 +35,8 @@ class Index extends Controller
      */
     public function create()
     {
-        return view("");
+        $role = Role::all();
+        return view("",compact("role"));
     }
 
     /**
@@ -55,9 +57,18 @@ class Index extends Controller
             $this->error("index/sava  信息错误:".$validator->getError());
         }
         $users = new Users($data);
+
+
+
         if(!$users->save()){
             $this->error("index/sava 保存失败");
         }
+
+        //关联权限
+        $role = $request->post("role/a");
+        $role && $users->role()->attach($role);
+
+
         $this->success("创建成功");
     }
 
@@ -80,10 +91,10 @@ class Index extends Controller
      */
     public function edit($id)
     {
-
+        $role = Role::all();
         $users = Users::get($id);
         !$users && $this->error("记录不存在!");
-        return view("",compact("users"));
+        return view("",compact("users","role"));
     }
 
     /**
@@ -106,10 +117,12 @@ class Index extends Controller
         if(! $validator->check($data)){
             $this->error("index/update  信息错误:".$validator->getError());
         }
+        $user = $this->getUsers($id);
+        //更新关联权限
+        $role = $request->post("role/a");
+        $user->role()->detach();
+        $role && $user->role()->attach($role);
 
-        if(!$users->save($data)){
-            $this->error("index/update 更新失败");
-        }
         $this->success("更新成功");
     }
     protected function validator(){
@@ -135,5 +148,11 @@ class Index extends Controller
             $this->error("删除失败");
         }
         $this->success("删除成功");
+    }
+    protected function getUsers($id)
+    {
+        $user = Users::get($id);
+        !$user && $this->error("记录不存在");
+        return $user;
     }
 }
