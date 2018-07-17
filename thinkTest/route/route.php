@@ -36,16 +36,19 @@ Route::group("admin", function () {
         Route::get("/delete/:id", "admin/role/delete");
         Route::post("/delete/:id", "admin/role/delete");
     });
-
-    Route::get("/index/index", "admin/index/index");
-    Route::get("/index/create", "admin/index/create");
-    Route::post("/index/create", "admin/index/save");
-    Route::get("/index/:id/delete", "admin/index/delete");
-    Route::post("/index/:id/delete", "admin/index/delete");
-    Route::get("/index/:id/edit", "admin/index/edit");
-    Route::post("/index/:id/edit", "admin/index/update");
-    Route::get("/index/read", "admin/index/read");
-    Route::post("/index/read", "admin/index/read");
+    Route::group("index", function () {
+    Route::get("/index", "admin/index/index");
+    Route::get("/create", "admin/index/create");
+    Route::post("/create", "admin/index/save");
+    Route::get("/:id/delete", "admin/index/delete");
+    Route::post("/:id/delete", "admin/index/delete");
+    Route::get("/:id/edit", "admin/index/edit");
+    Route::post("/:id/edit", "admin/index/update");
+    Route::get("/read", "admin/index/read");
+    Route::post("/read", "admin/index/read");
+    Route::get("/batch_create", "admin/index/batchCreate");
+    Route::post("/batch_create", "admin/index/batchSave");
+    });
 
 });
 

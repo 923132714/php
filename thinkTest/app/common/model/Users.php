@@ -60,7 +60,6 @@ class Users extends Model
 
         if (preg_match('/login/', $url) || preg_match('/logout/', $url)) {
             return true;
-
         }
         $user = self::user();
         if (!$user) {
@@ -73,13 +72,11 @@ class Users extends Model
             return false;
         }
 
-
-
         foreach ($role as $item) {
             $permission = $item->permission;
 
             foreach ($permission as $permissionItem) {
-                if (preg_match('#' . $permissionItem->preg_url . '#', $url) && ($permissionItem->method == $method || $permissionItem->method == "Any")) {
+                if (preg_match('#' . $permissionItem->preg_url . '#', $url) && ($permissionItem->method == $method || $permissionItem->method == "ANY")) {
                     return true;
 
                 }

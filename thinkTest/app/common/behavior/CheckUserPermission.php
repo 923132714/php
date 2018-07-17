@@ -17,8 +17,8 @@ class checkUserPermission
         if(!preg_match('/admin/',$url)){
             return ;
         }
-        if (!Users::checkPermission()) {
-            exit("Access Not Allow.");
-        }
+//        if (!Users::checkPermission()) {
+//            exit("Access Not Allow.");
+//        }
     }
 }

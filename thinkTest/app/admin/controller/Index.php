@@ -37,7 +37,23 @@ class Index extends Controller
     {
         $role = Role::all();
         return view("",compact("role"));
+
     }
+
+    /**
+     * 通过上传一定格式的excel 批量添加
+     *
+     */
+    public function batchCreate()
+    {
+        return view("");
+    }
+
+    public function batchSave()
+    {
+
+    }
+
 
     /**
      * 保存新建的资源
